@@ -1,0 +1,63 @@
+.container {
+    overflow-x: auto;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 50px;
+    padding: 10px;
+    margin: 10px;
+  }
+  
+  .title {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  tr {
+    height: 40px !important;
+  }
+  
+  th {
+    max-width: 125px;
+    min-width: 125px;
+    padding: 0 !important;
+    overflow-x: auto;
+    white-space: nowrap;
+    text-align: center !important;
+  }
+  
+  td {
+    height: 40px !important;
+    padding: 5px !important;
+    text-align: center !important;
+  }
+  .maxClose{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    float:right;
+    gap: 2%;
+    width: 60%;
+    float: right;
+    height: 2;
+  }
+  .employeeName{
+    display: flex;
+    flex-direction: row;
+    padding-top: 1%;
+    width: 100%;
+    float: left;
+    height: 1px;
+    padding-left: 13px;
+  }
+  .Heading{
+    display: flex;
+    width: 100%;
+    float: left;
+    padding-top: 10px;
+  }
+  .qwerty{
+    display: flex;
+  }
+  .ytrewq{
+    display: flex;
+  }

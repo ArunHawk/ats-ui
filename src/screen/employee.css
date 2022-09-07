@@ -1,0 +1,28 @@
+*{
+    font-family: 'Montserrat';
+}
+.div{
+  float: left; 
+}
+.sect{
+    display: flex;
+}
+.left{
+    margin-left: 1%;
+    width: 30%;
+}
+.right{
+    width: 100%;
+    display: flex;
+    padding-left: 35%;
+    margin-right: -5%;
+}
+.icon{
+     margin: 2%;
+}
+.iconty{
+padding-top: 20px;
+}
+.ic{
+    padding-top: 10px;
+}
