@@ -53,11 +53,11 @@
     display: flex;
     width: 100%;
     float: left;
-    padding-top: 10px;
+    padding-top: 5px;
   }
-  .qwerty{
+  /* .qwerty{
     display: flex;
-  }
+  } */
   .ytrewq{
     display: flex;
   }
