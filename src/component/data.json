@@ -129,6 +129,17 @@
          "emailId":"a@gmail.com",
          "joiningData":"02/05/2022",
          "active": true
+     },
+     {
+        "employeeid": 18902,
+         "fullName":"Agilan" ,
+         "designation":"developer",
+        "lead":"Christy",
+         "manager":"vincent",
+         "mobile":9735823400,
+         "emailId":"a@gmail.com",
+         "joiningData":"02/05/2022",
+         "active": true
      }
     
 ]
