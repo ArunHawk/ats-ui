@@ -90,7 +90,11 @@ const Employee = () => {
   });
   const navigate = useNavigate();
   const Logout = () => {
-    navigate("/");
+      if (window.confirm("Do you want to Logout ?")) {
+        navigate("/")
+      } else {
+        navigate("/home")
+      }
   };
 
   return (
@@ -219,7 +223,7 @@ const Employee = () => {
                   Basic Information
                 </Typography>
                 <hr></hr>
-                <Grid  sx={{pt:2}}container spacing={2}>
+                <Grid  sx={{pt:2}} container spacing={2}>
                   <Grid item xs={8}>
                     <TextField
                       label="Employee Id"
