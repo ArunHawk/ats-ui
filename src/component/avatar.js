@@ -40,7 +40,7 @@ const Img = styled('img')({
             <Avatar variant="contained" {...bindTrigger(popupState)}
         alt="Remy Sharp"
         src={Image}
-        sx={{ width: 33, height: 33, marginTop:"3px" }}
+        sx={{ width: 33, height: 33,cursor:"pointer", marginTop:"3px" }}
       />
         
          
@@ -71,10 +71,10 @@ const Img = styled('img')({
         <Grid item>
           <ButtonBase sx={{ width: 60, height: 100 }}>
            
-            <Avatar sx={{height:80, width:80}}>
-            <Img alt="complex" src={Image} />
+            <Avatar alt="complex" src={Image} sx={{height:80, width:80}}/>
+            
 
-            </Avatar>
+            
           </ButtonBase>
         </Grid>
         <Grid item xs={12} sm container>
