@@ -11,6 +11,7 @@ import {Avatar,
 import { styled } from "@mui/material/styles";
 
 import PopupState, { bindTrigger, bindPopover } from 'material-ui-popup-state';
+import { useNavigate } from 'react-router-dom';
 
 
 const Img = styled('img')({
@@ -21,6 +22,16 @@ const Img = styled('img')({
   });
   
   export default function Userlogo() {
+
+    const Navi=useNavigate();
+
+    const ASignout=()=>{
+      if (window.confirm("Do you want to Logout ?")) {
+        Navi("/")
+      } else {
+        Navi("/home")
+      }
+    }
     
   return (
     <PopupState variant="popover" popupId="demo-popup-popover">
@@ -69,7 +80,7 @@ const Img = styled('img')({
         <Grid item xs={12} sm container>
           <Grid item xs container direction="column" spacing={2}>
             <div >
-            <a href='/' style={{float: "right" , fontSize:"12px"}}>Sign Out</a>
+            <p style={{float: "right" ,cursor:"pointer", fontSize:"12px"}} onClick={ASignout}>Sign Out</p>
 
             </div>
             
