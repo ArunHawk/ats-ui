@@ -124,7 +124,7 @@ const Employee = () => {
               ),
             }}
           />
-          <FilterListIcon sx={{ color: "black" }} />
+          <FilterListIcon sx={{ color: "black", cursor: "pointer" }} />
         </Grid>
 
         <Grid
@@ -141,7 +141,10 @@ const Employee = () => {
           >
             AddEmployee
           </BootstrapButton>
-          <StartIcon sx={{ color: "black" }} onClick={Logout} />
+          <StartIcon
+            sx={{ color: "black", cursor: "pointer" }}
+            onClick={Logout}
+          />
         </Grid>
       </Grid>
       <Dialog
@@ -183,7 +186,7 @@ const Employee = () => {
               </div>
             </Grid>
             <Grid item xs={12}>
-              <div className="ytrewq">
+              <div className="flex-head">
                 <div className="Heading">
                   <Typography
                     style={{ color: "black", fontWeight: 700 }}
