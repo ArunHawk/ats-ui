@@ -108,7 +108,8 @@ section{
 .button{
   width:100% ;
   height: 40px;
-  background-color:  rgb(37, 150, 190);
+  background-color:  rgb(8, 83, 245);
+  border-radius: 4px;
   color: white;
   border: none;
 }
