@@ -7,6 +7,11 @@ import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined
 import { useNavigate } from "react-router-dom";
 
 export default function Signin() {
+  const [show,setShow] = useState(false);
+  const handleShow = () =>{
+    setShow(!show)
+  }
+
   const Navigate= useNavigate();
    const[username,setusername]=useState('');
    const[password,setpassword]=useState('');
@@ -44,8 +49,8 @@ export default function Signin() {
              {error&& username.length<=0?<p className="user">username can't be empty!</p>:""}
              <br></br>
             <div className="inputdiv">
-            <input type="password" placeholder="Password" name='password' onChange={e=>setpassword(e.target.value)}/>
-            <span className="icon"><LockOutlinedIcon/></span>
+            <input type={show?"text":"password"} placeholder="Password" name='password' onChange={e=>setpassword(e.target.value)}/>
+            <span className="icon"><LockOutlinedIcon onClick={handleShow}/></span>
             </div>
             {error&& password.length<=0?<p className="user">password can't be empty</p>:""}
            

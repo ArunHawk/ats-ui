@@ -5,9 +5,12 @@ import InputAdornment from "@mui/material/InputAdornment";
 import SearchIcon from "@mui/icons-material/Search";
 import AddIcon from "@mui/icons-material/Add";
 import FilterListIcon from "@mui/icons-material/FilterList";
+import dayjs from 'dayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { BootstrapButton, AtsTextField } from "./employeeCss.js";
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import {
-  Alert,
   Button,
   Dialog,
   Toolbar,
@@ -39,21 +42,38 @@ import CloseIcon from "@mui/icons-material/Close";
 import "yup-phone";
 import "../style.css";
 import { useNavigate } from "react-router-dom";
+
+
+
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
 const Employee = () => {
+  const [value, setValue] = React.useState(dayjs());
   const [open, setOpen] = React.useState(false);
   const [maxWidth, setMaxWidth] = React.useState("md");
   const handleClickOpen = () => {
-    setOpen(true);
+    setOpen(true)
   };
 
+  const handleClosed=()=>{
+    var alert =window.confirm("Are you sure You want to Cancel?")
+
+    if (alert===true)
+  {
+    setOpen(false);
+  }
+  else
+  {
+    setOpen(true);
+  }
+  }
+    
   const handleClose = () => {
     setOpen(false);
   };
-
+ 
   const formik = useFormik({
     initialValues: {
       FirstName: "",
@@ -61,7 +81,10 @@ const Employee = () => {
       EmailId: "",
       MobileNumber: "",
       PanNumber: "",
-      AadhaarNumber: "1234 5678 9010",
+      AadhaarNumber: "",
+      address:"",
+      year:"",
+      month:"",
     },
     validationSchema: yup.object({
       FirstName: yup
@@ -72,29 +95,39 @@ const Employee = () => {
       LastName: yup
         .string()
         .required("Enter Employee LastName")
-        .min(2, "Alteast 2 Character")
+        .min(1, "Alteast 2 Character")
         .max(10, "Maximum 20 Character"),
       EmailId: yup.string().email().required("Enter Employee EmailId"),
       MobileNumber: yup
         .string()
         .phone()
         .required("Enter Employee MobileNumber"),
-      PanNumber: yup.string().required("Enter Employee PanNumber"),
-      AadhaarNumber: yup.number().required("Enter Employee AadhaarNumber"),
+      PanNumber: yup.string().required("Enter Employee PanNumber").uppercase(),
+      AadhaarNumber: yup.number().required("Enter Employee AadhaarNumber").min(12, "Must Have 12 Number"),
+      address:yup.string().required('Enter address'),
+      year:yup.number().required("Enter Year").min(4),
+      month:yup.number().required("Enter Month").min(1).max(12)
     }),
-    onSubmit: (value) => {
-      <Alert variant="filled" severity="success">
-        Successfully added employee details
-      </Alert>;
-    },
+    onSubmit:(value)=>{
+      var alert =window.confirm("Employee details added Successfully")
+
+  if (alert===true)
+{
+  setOpen(false);
+}
+else
+{
+  setOpen(true);
+}
+}
   });
   const navigate = useNavigate();
   const Logout = () => {
-      if (window.confirm("Do you want to Logout ?")) {
-        navigate("/")
-      } else {
-        navigate("/home")
-      }
+    if(window.confirm("Do you want to Logout?")){
+      navigate("/");
+    } else {
+      navigate("/home");
+    }
   };
 
   return (
@@ -128,7 +161,7 @@ const Employee = () => {
               ),
             }}
           />
-          <FilterListIcon sx={{ color: "black", cursor: "pointer" }} />
+          <FilterListIcon sx={{ color: "black", cursor:"pointer" }} />
         </Grid>
 
         <Grid
@@ -145,18 +178,16 @@ const Employee = () => {
           >
             AddEmployee
           </BootstrapButton>
-          <StartIcon
-            sx={{ color: "black", cursor: "pointer" }}
-            onClick={Logout}
-          />
+          <StartIcon sx={{ color: "black",  cursor:"pointer" }} onClick={Logout} />
         </Grid>
       </Grid>
+     
       <Dialog
         maxWidth={maxWidth}
         open={open}
         onClose={handleClose}
         TransitionComponent={Transition}
-      >
+      ><form onSubmit={formik.handleSubmit}>
         <Toolbar style={{ backgroundColor: "white" }} fullWidth>
           <Grid container>
             <Grid item xs={12}>
@@ -169,7 +200,7 @@ const Employee = () => {
                     edge="end"
                     color="inherit"
                     onClick={() => {
-                      maxWidth === "md" ? setMaxWidth("lg") : setMaxWidth("md");
+                      maxWidth === "md" ? setMaxWidth("lg") : setMaxWidth("md")
                     }}
                     aria-label="close"
                     style={{ color: "black" }}
@@ -190,8 +221,10 @@ const Employee = () => {
               </div>
             </Grid>
             <Grid item xs={12}>
-              <div className="flex-head">
+              
+              <div className="ytrewq">
                 <div className="Heading">
+                 
                   <Typography
                     style={{ color: "black", fontWeight: 700 }}
                     sx={{ ml: 2, flex: 1 }}
@@ -202,13 +235,14 @@ const Employee = () => {
                   </Typography>
                   <div className="ButtonStyle">
                     <Stack direction="row" spacing={2}>
-                      <Button variant="contained" onClick={handleClose}>
+                      <Button variant="contained" onClick={handleClosed}>
                         Cancel
                       </Button>
                       <Button
+                      type='submit'
                         variant="contained"
                         startIcon={<SaveIcon fontSize="small" />}
-                        onClick={formik.handleSubmit}
+
                       >
                         Save
                       </Button>
@@ -220,15 +254,15 @@ const Employee = () => {
           </Grid>
         </Toolbar>
 
-        <Typography gutterBottom>
-          <Grid sx={{ pl: 3, pr: 4, pb: 5 }} container spacing={2}>
+        <Typography  gutterBottom>
+          <Grid sx={{ pt:2,pl: 3,pr:3,pb:3 }} container spacing={2}>
             <Grid item xs={4}>
               <Box>
                 <Typography variant="h8" style={{ fontWeight: 600 }}>
                   Basic Information
                 </Typography>
                 <hr></hr>
-                <Grid  sx={{pt:2}} container spacing={2}>
+                <Grid  sx={{pt:2}}container spacing={2}>
                   <Grid item xs={8}>
                     <TextField
                       label="Employee Id"
@@ -274,7 +308,7 @@ const Employee = () => {
                       onChange={formik.handleChange}
                       fullWidth
                     ></TextField>
-                    {formik.errors.EmailId && formik.touched.EmailId ? (
+                    {formik.errors.EmailId || formik.touched.EmailId ? (
                       <span className="span">{formik.errors.EmailId}</span>
                     ) : null}
                   </Grid>
@@ -305,19 +339,21 @@ const Employee = () => {
                   Personal Details
                 </Typography>
                 <hr></hr>
-                <Grid sx={{ pt: 2 }} container spacing={2}>
+                <Grid sx={{pt:2}} container spacing={2}>
                   <Grid item xs={6}>
-                    <TextField
-                      id="date"
-                      label="Date Of Birth"
-                      type="date"
-                      defaultValue="2017-05-24"
-                      size="small"
-                      fullWidth
-                      InputLabelProps={{
-                        shrink: true,
-                      }}
-                    />
+                  <LocalizationProvider dateAdapter={AdapterDayjs}>
+                  <DatePicker
+          views={['day']}
+          label="Date Of Birth"
+          size='small'
+          value={value}
+          
+          onChange={(newValue) => {
+            setValue(newValue);
+          }}
+          renderInput={(params) => <TextField  size="small" {...params} helperText={null} />}
+        />
+        </LocalizationProvider>
                   </Grid>
                   <Grid item xs={6}>
                     <FormControl fullWidth>
@@ -329,7 +365,8 @@ const Employee = () => {
                         id="demo-simple-select"
                         // value={age}
                         label="Material Status"
-                        // onChange={handleChange}
+                        onChange={formik.handleChange}
+                         onBlur={formik.handleBlur}
                         size="small"
                       >
                         <MenuItem value={10}>Single</MenuItem>
@@ -362,11 +399,17 @@ const Employee = () => {
                     </RadioGroup>
 
                     <TextField
+                     name="address"
+                     value={formik.values.address}
                       label="Address"
                       variant="outlined"
                       size="small"
+                      onChange={formik.handleChange}
                       fullWidth
                     ></TextField>
+                      {formik.errors.address || formik.touched.address ? (
+                      <span className="span">{formik.errors.address}</span>
+                    ) : null}
                   </Grid>
                 </Grid>
               </Box>
@@ -377,11 +420,11 @@ const Employee = () => {
                   Identity Information
                 </Typography>
                 <hr></hr>
-                <Grid sx={{ pt: 2 }} container spacing={2}>
+                <Grid  sx={{pt:2}} container spacing={2}>
                   <Grid item xs={12}>
                     <TextField
                       label="PanCardNumber"
-                      type="number"
+                      type="text"
                       name="PanNumber"
                       value={formik.values.PanNumber}
                       variant="outlined"
@@ -420,7 +463,7 @@ const Employee = () => {
                   Work Information
                 </Typography>
                 <hr></hr>
-                <Grid sx={{ pt: 2 }} container spacing={2}>
+                <Grid  sx={{pt:2}} container spacing={2}>
                   <Grid item xs={4}>
                     <FormControl fullWidth>
                       <InputLabel id="demo-simple-select-label" size="small">
@@ -431,7 +474,8 @@ const Employee = () => {
                         id="demo-simple-select"
                         // value={age}
                         label="Department"
-                        // onChange={handleChange}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
                         size="small"
                       >
                         <MenuItem value={10}>Management</MenuItem>
@@ -449,7 +493,8 @@ const Employee = () => {
                         id="demo-simple-select"
                         // value={age}
                         label="Employeement Type"
-                        // onChange={handleChange}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
                         size="small"
                       >
                         <MenuItem value={10}>Full Time</MenuItem>
@@ -458,17 +503,19 @@ const Employee = () => {
                     </FormControl>
                   </Grid>
                   <Grid item xs={4}>
-                    <TextField
-                      id="date"
-                      label="Date Of Joining"
-                      type="date"
-                      defaultValue="2017-05-24"
-                      size="small"
-                      fullWidth
-                      InputLabelProps={{
-                        shrink: true,
-                      }}
-                    />
+                  <LocalizationProvider dateAdapter={AdapterDayjs}>
+                  <DatePicker
+          views={['day']}
+          label="Date Of Birth"
+          size='small'
+          value={value}
+          disablePast
+          onChange={(newValue) => {
+            setValue(newValue);
+          }}
+          renderInput={(params) => <TextField  size="small" {...params} helperText={null} />}
+        />
+        </LocalizationProvider>
                   </Grid>
                   <Grid item xs={4}>
                     <FormControl fullWidth>
@@ -480,7 +527,8 @@ const Employee = () => {
                         id="demo-simple-select"
                         // value={age}
                         label="Designation"
-                        // onChange={handleChange}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
                         size="small"
                       >
                         <MenuItem value={10}>Manager</MenuItem>
@@ -499,7 +547,8 @@ const Employee = () => {
                         id="demo-simple-select"
                         // value={age}
                         label="Employee Status"
-                        // onChange={handleChange}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
                         size="small"
                       >
                         <MenuItem value={10}>Worker</MenuItem>
@@ -517,9 +566,11 @@ const Employee = () => {
                       <Select
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
-                        // value={age}
+                        name="desgination"
+                        value={formik.values.desgination}
                         label="Designation"
-                        // onChange={handleChange}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
                         size="small"
                       >
                         <MenuItem value={10}>Coimbatore</MenuItem>
@@ -534,21 +585,33 @@ const Employee = () => {
                         {" "}
                         <TextField
                           label="Year(s)"
+                          name="year"
+                          value={formik.values.year}
                           type="number"
                           variant="outlined"
                           size="small"
-                          required
+                          onChange={formik.handleChange}
+                          onBlur={formik.handleBlur}
                         ></TextField>
+                        {formik.errors.year && formik.touched.year ? (
+                      <span className="span">{formik.errors.year}</span>
+                    ) : null}
                       </div>
                       <div className="right1">
                         {" "}
                         <TextField
                           label="Month(s)"
                           type="number"
+                          name='month'
+                          value={formik.values.month}
                           variant="outlined"
                           size="small"
-                          required
+                          onChange={formik.handleChange}
+                          onBlur={formik.handleBlur}
                         ></TextField>
+                        {formik.errors.month && formik.touched.month ? (
+                      <span className="span">{formik.errors.month}</span>
+                    ) : null}
                       </div>
                     </div>
                   </Grid>
@@ -561,7 +624,7 @@ const Employee = () => {
                   Hieranchy Information
                 </Typography>
                 <hr></hr>
-                <Stack sx={{ pt: 2 }} spacing={2}>
+                <Stack  sx={{pt:2}}spacing={2}>
                   <FormControl fullWidth>
                     <InputLabel id="demo-simple-select-label" size="small">
                       Reporting Manager
@@ -615,6 +678,7 @@ const Employee = () => {
             </Grid>
           </Grid>
         </Typography>
+        </form>
       </Dialog>
     </>
   );
