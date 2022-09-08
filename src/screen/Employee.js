@@ -82,11 +82,11 @@ const Employee = () => {
       PanNumber: yup.string().required("Enter Employee PanNumber"),
       AadhaarNumber: yup.number().required("Enter Employee AadhaarNumber"),
     }),
-     onSubmit:(value)=>{
+    onSubmit: (value) => {
       <Alert variant="filled" severity="success">
         Successfully added employee details
-    </Alert>
-     }
+      </Alert>;
+    },
   });
   const navigate = useNavigate();
   const Logout = () => {
@@ -128,7 +128,7 @@ const Employee = () => {
               ),
             }}
           />
-          <FilterListIcon sx={{ color: "black" }} />
+          <FilterListIcon sx={{ color: "black", cursor: "pointer" }} />
         </Grid>
 
         <Grid
@@ -145,7 +145,10 @@ const Employee = () => {
           >
             AddEmployee
           </BootstrapButton>
-          <StartIcon sx={{ color: "black" }} onClick={Logout} />
+          <StartIcon
+            sx={{ color: "black", cursor: "pointer" }}
+            onClick={Logout}
+          />
         </Grid>
       </Grid>
       <Dialog
@@ -165,7 +168,9 @@ const Employee = () => {
                   <IconButton
                     edge="end"
                     color="inherit"
-                    onClick={setMaxWidth}
+                    onClick={() => {
+                      maxWidth === "md" ? setMaxWidth("lg") : setMaxWidth("md");
+                    }}
                     aria-label="close"
                     style={{ color: "black" }}
                   >
@@ -185,7 +190,7 @@ const Employee = () => {
               </div>
             </Grid>
             <Grid item xs={12}>
-              <div className="ytrewq">
+              <div className="flex-head">
                 <div className="Heading">
                   <Typography
                     style={{ color: "black", fontWeight: 700 }}
@@ -215,8 +220,8 @@ const Employee = () => {
           </Grid>
         </Toolbar>
 
-        <Typography  gutterBottom>
-          <Grid sx={{ pl: 3,pr:4,pb:5 }} container spacing={2}>
+        <Typography gutterBottom>
+          <Grid sx={{ pl: 3, pr: 4, pb: 5 }} container spacing={2}>
             <Grid item xs={4}>
               <Box>
                 <Typography variant="h8" style={{ fontWeight: 600 }}>
@@ -300,7 +305,7 @@ const Employee = () => {
                   Personal Details
                 </Typography>
                 <hr></hr>
-                <Grid   sx={{pt:2}} container spacing={2}>
+                <Grid sx={{ pt: 2 }} container spacing={2}>
                   <Grid item xs={6}>
                     <TextField
                       id="date"
@@ -372,7 +377,7 @@ const Employee = () => {
                   Identity Information
                 </Typography>
                 <hr></hr>
-                <Grid  sx={{pt:2}} container spacing={2}>
+                <Grid sx={{ pt: 2 }} container spacing={2}>
                   <Grid item xs={12}>
                     <TextField
                       label="PanCardNumber"
@@ -415,7 +420,7 @@ const Employee = () => {
                   Work Information
                 </Typography>
                 <hr></hr>
-                <Grid  sx={{pt:2}} container spacing={2}>
+                <Grid sx={{ pt: 2 }} container spacing={2}>
                   <Grid item xs={4}>
                     <FormControl fullWidth>
                       <InputLabel id="demo-simple-select-label" size="small">
@@ -556,7 +561,7 @@ const Employee = () => {
                   Hieranchy Information
                 </Typography>
                 <hr></hr>
-                <Stack  sx={{pt:2}}spacing={2}>
+                <Stack sx={{ pt: 2 }} spacing={2}>
                   <FormControl fullWidth>
                     <InputLabel id="demo-simple-select-label" size="small">
                       Reporting Manager
