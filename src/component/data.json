@@ -2,12 +2,12 @@
     {
        "employeeid": 10967,
         "fullName":"Daniel" ,
-        "designation":"developer",
+        "designation":"Trainee",
         "lead":"Christy",
         "manager":"vincent",
         "mobile":9735823400,
         "emailId":"D@gmail.com",
-        "joiningData":"02/05/2022",
+        "joiningData":"02/08/2022",
         "active": true
     },
     {
@@ -17,31 +17,31 @@
          "lead":"Christy",
          "manager":"vincent",
          "mobile":9735823400,
-         "emailId":"a@gmail.com",
+         "emailId":"f@gmail.com",
          "joiningData":"02/05/2022",
          "active": false
      },
      {
         "employeeid": 17890,
          "fullName":"Azar" ,
-         "designation":"developer",
+         "designation":"Tester",
         "lead":"Christy",
          "manager":"vincent",
          "mobile":9735823400,
          "emailId":"a@gmail.com",
-         "joiningData":"02/05/2022",
+         "joiningData":"18/05/2022",
          "active": true
      },
      {
         "employeeid": 10977,
          "fullName":"michael" ,
-         "designation":"developer",
+         "designation":"Trainee",
          "lead":"Christy",
          "manager":"vincent",
          "mobile":9735823400,
-         "emailId":"a@gmail.com",
-         "joiningData":"02/05/2022",
-         "active": true
+         "emailId":"m@gmail.com",
+         "joiningData":"22/10/2022",
+         "active": false
      },
      {
         "employeeid": 18907,
@@ -50,8 +50,8 @@
          "lead":"Christy",
          "manager":"vincent",
          "mobile":9735823400,
-         "emailId":"a@gmail.com",
-         "joiningData":"02/05/2022",
+         "emailId":"c@gmail.com",
+         "joiningData":"02/10/2022",
          "active": true
      },
      {
@@ -61,84 +61,85 @@
         "lead":"Christy",
          "manager":"vincent",
          "mobile":9735823400,
-         "emailId":"a@gmail.com",
-         "joiningData":"02/05/2022"
+         "emailId":"R@gmail.com",
+         "joiningData":"01/12/2022",
+         "active":false
      },
      {
         "employeeid": 10892,
          "fullName":"John" ,
-         "designation":"developer",
+         "designation":"Tester",
          "lead":"Christy",
          "manager":"vincent",
          "mobile":9735823400,
-         "emailId":"a@gmail.com",
-         "joiningData":"02/05/2022",
+         "emailId":"j@gmail.com",
+         "joiningData":"06/09/2022",
          "active": true
      },
      {
-        "employeeid": 18902,
+        "employeeid": 18901,
          "fullName":"Agilan" ,
          "designation":"developer",
         "lead":"Christy",
          "manager":"vincent",
          "mobile":9735823400,
          "emailId":"a@gmail.com",
-         "joiningData":"02/05/2022",
-         "active": true
+         "joiningData":"03/06/2022",
+         "active":false
      },
      {
         "employeeid": 18902,
-         "fullName":"Agilan" ,
+         "fullName":"Ramya" ,
+         "designation":"Tester",
+        "lead":"Christy",
+         "manager":"vincent",
+         "mobile":9735823400,
+         "emailId":"Ra@gmail.com",
+         "joiningData":"21/08/2022",
+         "active": true
+     },
+     {
+        "employeeid": 18803,
+         "fullName":"Arun" ,
+         "designation":"developer",
+        "lead":"Christy",
+         "manager":"vincent",
+         "mobile":9735823400,
+         "emailId":"ar@gmail.com",
+         "joiningData":"29/11/2022",
+         "active": true
+     },
+     {
+        "employeeid": 18740,
+         "fullName":"Rajesh" ,
+         "designation":"Trainee",
+        "lead":"Christy",
+         "manager":"vincent",
+         "mobile":9735823400,
+         "emailId":"Ra@gmail.com",
+         "joiningData":"30/01/2022",
+         "active": true
+     },
+     {
+        "employeeid": 18303,
+         "fullName":"Raguna" ,
          "designation":"developer",
         "lead":"Christy",
          "manager":"vincent",
          "mobile":9735823400,
          "emailId":"a@gmail.com",
-         "joiningData":"02/05/2022",
+         "joiningData":"04/04/2022",
          "active": true
      },
      {
-        "employeeid": 18902,
-         "fullName":"Agilan" ,
-         "designation":"developer",
+        "employeeid": 18499,
+         "fullName":"Zebra" ,
+         "designation":"Trainee",
         "lead":"Christy",
          "manager":"vincent",
-         "mobile":9735823400,
-         "emailId":"a@gmail.com",
-         "joiningData":"02/05/2022",
-         "active": true
-     },
-     {
-        "employeeid": 18902,
-         "fullName":"Agilan" ,
-         "designation":"developer",
-        "lead":"Christy",
-         "manager":"vincent",
-         "mobile":9735823400,
-         "emailId":"a@gmail.com",
-         "joiningData":"02/05/2022",
-         "active": true
-     },
-     {
-        "employeeid": 18902,
-         "fullName":"Agilan" ,
-         "designation":"developer",
-        "lead":"Christy",
-         "manager":"vincent",
-         "mobile":9735823400,
-         "emailId":"a@gmail.com",
-         "joiningData":"02/05/2022",
-         "active": true
-     },
-     {
-        "employeeid": 18902,
-         "fullName":"Agilan" ,
-         "designation":"developer",
-        "lead":"Christy",
-         "manager":"vincent",
-         "mobile":9735823400,
-         "emailId":"a@gmail.com",
-         "joiningData":"02/05/2022",
+         "mobile":9735333300,
+         "emailId":"z@gmail.com",
+         "joiningData":"01/07/2022",
          "active": true
      }
     
