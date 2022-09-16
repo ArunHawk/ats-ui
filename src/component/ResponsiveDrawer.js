@@ -34,11 +34,9 @@ import {
 } from "@mui/material";
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrowLeft";
-import TableList from "./Table";
 import AddressBar from "./AddressBar";
-import Popover from "@mui/material/Popover";
+import Employee from "../screen/Employee";
 
-import PopupState, { bindTrigger, bindPopover } from "material-ui-popup-state";
 import Userlogo from "./avatar";
 
 
@@ -404,7 +402,7 @@ export default function MiniDrawer() {
         <AddressBar />
         <Divider />
     
-        <TableList />
+        <Employee />
       </Box>
     </Box>
   );
